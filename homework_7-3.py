@@ -27,8 +27,16 @@ class WordsFinder:
             if self.word in line:
                 k = line.index(self.word) + 1
                 fin = {i:k}
-                print(fin)
+        return fin
 
+    def count(self, word):
+        self.word = word.lower()
+        for i in self.all_words:
+            line = self.all_words[i]
+            if self.word in line:
+                k = line.count(self.word)
+                fin = {i:k}
+        return fin
 
 
 
@@ -39,5 +47,4 @@ print(finder1.get_all_words())
 finder2 = WordsFinder('test.txt')
 print(finder2.get_all_words())
 print(finder2.find('TEXT'))
-
-
+print(finder2.count('teXT'))
